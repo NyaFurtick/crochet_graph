@@ -24,4 +24,8 @@ class FileReader
     color_map = source_file.slice((eoc + 1)...)
     color_map.map { |value| value.split(":") }.to_h
   end
+
+  def yarn_color(value)
+    yarns[value.to_s]
+  end
 end

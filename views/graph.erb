@@ -1,3 +1,25 @@
 <h3>List contents of text file</h3>
 <h4>Canvas: <%= @file.canvas %></h4>
 <h4>Color Map: <%= @file.yarns %></h4>
+
+<h4>Graph</h4>
+<table>
+ <% @file.canvas.each do |row| %>
+  <tr>
+    <% row.each do |value| %>
+        <td bgcolor="<%= @file.yarn_color(value) %>"></td>
+    <% end %>
+  </tr>
+ <% end %>
+</table>
+
+<style>
+  table {
+    padding: 15px;
+    width: 100%;
+  }
+  td {
+    outline: 3px solid;
+    height: 50px;
+  }
+</style>
