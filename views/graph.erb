@@ -7,10 +7,20 @@
  <% @file.canvas.each do |row| %>
   <tr>
     <% row.each do |value| %>
-        <td bgcolor="<%= @file.yarn_color(value) %>"></td>
+        <td class="graph" bgcolor="<%= @file.yarn_color(value) %>"></td>
     <% end %>
   </tr>
  <% end %>
+</table>
+
+<h4>Frequency table</h4>
+<table>
+  <% @file.display_frequency_table.each do |color, percentage| %>
+    <tr>
+      <td><%= color %></td>
+      <td><%= percentage %>%</td>
+    </tr>
+  <% end %>
 </table>
 
 <style>
@@ -21,5 +31,8 @@
   td {
     outline: 3px solid;
     height: 50px;
+  }
+  .graph {
+    outline: white 3px solid;
   }
 </style>
