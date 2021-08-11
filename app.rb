@@ -6,7 +6,7 @@ get '/' do
 end
 
 get '/graph' do
-  @file = FileReader.new("canvas.txt")
+  @graph = FileReader.new("canvas.txt").graphgan
 
   erb :graph
 end

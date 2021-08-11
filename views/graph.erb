@@ -1,13 +1,9 @@
-<h3>List contents of text file</h3>
-<h4>Canvas: <%= @file.canvas %></h4>
-<h4>Color Map: <%= @file.yarns %></h4>
-
 <h4>Graph</h4>
 <table>
- <% @file.canvas.each do |row| %>
+ <% @graph.canvas.each do |row| %>
   <tr>
     <% row.each do |value| %>
-        <td class="graph" bgcolor="<%= @file.yarn_color(value) %>"></td>
+        <td class="graph" bgcolor="<%= @graph.yarn_color(value) %>"></td>
     <% end %>
   </tr>
  <% end %>
@@ -15,7 +11,7 @@
 
 <h4>Frequency table</h4>
 <table>
-  <% @file.display_frequency_table.each do |color, percentage| %>
+  <% @graph.display_frequency_table.each do |color, percentage| %>
     <tr>
       <td><%= color %></td>
       <td><%= percentage %>%</td>
@@ -29,10 +25,10 @@
     width: 100%;
   }
   td {
-    outline: 3px solid;
+    outline: 2px solid;
     height: 50px;
   }
   .graph {
-    outline: white 3px solid;
+    outline: white 2px solid;
   }
 </style>
