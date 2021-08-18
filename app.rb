@@ -1,5 +1,6 @@
 require 'sinatra'
 require './file_reader'
+require './image_reader'
 
 get '/' do
   erb :index
@@ -17,4 +18,14 @@ get '/graph/:file_name' do
 
 rescue Errno::ENOENT
   'file does not exist'
+end
+
+get '/create-graph' do
+  erb :create_graph
+end
+
+post '/create-graph' do
+  @path = params[:pic_name]
+
+  erb :render_graph
 end
