@@ -1,6 +1,7 @@
 require 'sinatra'
 require './file_reader'
 require './image_handler'
+require './file_name_generator'
 
 get '/' do
   erb :index
@@ -25,8 +26,9 @@ get '/create-graph' do
 end
 
 post '/create-graph' do
-  path = params[:pic_name]
-  @picture = ImageHandler.new(path)
+  org_path = params[:pic_name]
+  @new_path = FileNameGenerator.new(org_path).processed_file_name
+  ImageHandler.new(org_path, @new_path).process
 
   erb :render_graph
 end

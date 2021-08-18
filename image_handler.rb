@@ -13,7 +13,7 @@ class ImageHandler
 
   private
   def set_size
-    cmd = "convert public/#{original_file_name} -resize 900x900 public/#{original_file_name}"
+    cmd = "convert public/#{original_file_name} -resize 900x900 public/#{processed_file_name}"
     system(cmd)
   end
 

@@ -5,7 +5,7 @@ class FileNameGenerator
     @file_name = file_name
   end
 
-  def gif
+  def processed_file_name
     # removes file extension
     no_ext = File.basename(file_name, File.extname(file_name))
     file_name = no_ext.concat('.gif')
