@@ -11,7 +11,15 @@ class ImageHandler
   end
 
   def reduce_colors
-    cmd = "convert #{path} +dither -colors 15 #{path}"
+    cmd = "convert #{path} +dither -colors 15 #{convert}"
     system(cmd)
+  end
+
+  private
+  # converts image from whatever to gif
+  def convert
+    # removes file extension
+    no_ext = File.basename(path, File.extname(path))
+    path = no_ext.concat('.gif')
   end
 end
