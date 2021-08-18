@@ -13,4 +13,12 @@ class ImageHandlerTest < Minitest::Test
       assert_equal "winnie.jpeg", picture.path
     end
   end
+
+  describe "#crop" do
+    picture = ImageHandler.new("~/Downloads/winnie.jpeg")
+
+    it "returns true if command is executed" do
+      assert picture.crop
+    end
+  end
 end
