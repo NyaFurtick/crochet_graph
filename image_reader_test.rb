@@ -21,4 +21,11 @@ class ImageHandlerTest < Minitest::Test
       assert picture.crop
     end
   end
+
+  describe "#reduce colors" do
+    picture = ImageHandler.new("~/Downloads/winnie.jpeg")
+    it "returns true if command is executed" do
+      assert picture.reduce_colors
+    end
+  end
 end
