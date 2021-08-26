@@ -2,6 +2,7 @@ require 'sinatra'
 require './file_reader'
 require './image_handler'
 require './file_name_generator'
+require './readable_image'
 
 get '/' do
   erb :index
@@ -29,6 +30,8 @@ post '/create-graph' do
   org_path = params[:pic_name]
   @new_path = FileNameGenerator.new(org_path).processed_file_name
   ImageHandler.new(org_path, @new_path).process
+  ReadableImage.new("public/#{@new_path}").create
+  @graph = FileReader.new("public/canvas.csv").graphgan
 
-  erb :render_graph
+  erb :graph
 end

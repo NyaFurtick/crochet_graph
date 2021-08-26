@@ -13,12 +13,12 @@ class ImageHandler
 
   private
   def set_size
-    cmd = "convert public/#{original_file_name} -resize 900x900 public/#{processed_file_name}"
+    cmd = "convert public/#{original_file_name} -resize 50x50 public/#{processed_file_name}"
     system(cmd)
   end
 
   def reduce_colors
-    cmd = "convert public/#{original_file_name} +dither -colors 15 public/#{processed_file_name}"
+    cmd = "convert public/#{processed_file_name} +dither -colors 15 public/#{processed_file_name}"
     system(cmd)
   end
 end
